@@ -1,20 +1,33 @@
+# Assignment 25
 class Employee:
-    def __init__(self, emp_id=0, name="", salary=0):
-        self.Employee_ID = emp_id
-        self.Name = name
-        self.Salary = salary
-
-    def get(self):
-        self.Employee_ID = int(input("Enter the Employee ID:-"))
-        self.Name = input("Enter the Employee Name:-")
-        self.Salary = int(input("Enter the Salary of Employee:-"))
+    def __init__(self):
+        self.li = []
+        self.sa = []
 
     def show(self):
-        print("Employee ID : ", self.Employee_ID)
-        print("Employee Name : ", self.Name)
-        print("Salary of Employee : ", self.Salary)
+        self.sor()
+        print("Sorting according to their salary")
+        print(self.li)
+        print("Sorting according to their name")
+        self.li.sort()
+        print(self.li)
+
+    def get(self):
+        a = int(input("Enter no of input.."))
+        for i in range(a):
+            self.li.append(input("Enter Employee name :"))
+        for i in range(a):
+            self.sa.append(int(input("Enter your salary :")))
+
+    def sor(self):
+        end = len(self.li)
+        for i in range(end):
+            for j in range(i + 1, end):
+                if self.sa[i] < self.sa[j]:
+                    self.sa[i], self.sa[j] = self.sa[j], self.sa[i]
+                    self.li[i], self.li[j] = self.li[j], self.li[i]
 
 
-s = Employee()
-s.get()
-s.show()
+E = Employee()
+E.get()
+E.show()
